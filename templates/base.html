@@ -38,7 +38,11 @@
 <body>
     <div class="pure-g-r" id="layout">
         <div class="sidebar pure-u">
-            <div class="cover-img" style="background-image: url('{% block sidebar %}{{ COVER_IMG_URL }}{% endblock %}')">
+            <div class="cover-img" {% if COVER_IMG_URL -%}
+                style="background-image: url('{% block sidebar %}{{ COVER_IMG_URL }}{% endblock %}')"
+                {%- else -%}
+                style="background: none repeat scroll 0% 0% #3D4F5D"
+                {%- endif -%}>
                 <div class="cover-body">
                     <header class="header">
                         <hgroup>
