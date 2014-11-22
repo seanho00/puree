@@ -54,6 +54,11 @@
                             {% for title, link in MENUITEMS %}
                                 <p class="links"><a href="{{ link }}">{{ title }}</a></p>
                             {% endfor %}
+                            {% if DISPLAY_PAGES_ON_MENU %}
+                            {% for page in PAGES %}
+                                <p class="links"><a href="{{ SITEURL }}/pages/{{ page.slug }}">{{ page.title }}</a></p>
+                            {% endfor %}
+                            {% endif %}
                                 <p class="social">
                             {% for title, link in SOCIAL %}
                                     <a href="{{ link }}">
