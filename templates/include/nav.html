@@ -1,0 +1,33 @@
+{# Fixed navigation bar along top of every page #}
+<nav class="header">
+  <div class="nav pure-menu pure-menu-horizontal pure-menu-fixed">
+    <a class="pure-menu-heading" href="{{ SITEURL }}">{{ SITENAME }}</a>
+
+{% if MENUITEMS is defined %}
+    <ul class="extra-menu pure-menu-list">
+{% for title, link in MENUITEMS %}
+      <li class="extra-menu-item pure-menu-item"><a href="{{ link }}">{{ title }}</a></li>
+{% endfor %}
+    </ul>
+{% endif %}
+
+{% if DISPLAY_PAGES_ON_MENU %}
+    <ul class="pages-menu pure-menu-list">
+{% for p in PAGES %}
+      <li class="page-menu-item pure-menu-item {% if p == page %}pure-menu-selected{% endif %}">
+      <a href="{{ SITEURL }}/{{ p.url }}" class="pure-menu-link">{{ p.title }}</a></li>
+{% endfor %}
+    </ul>
+{% endif %}
+
+{% if DISPLAY_CATEGORIES_ON_MENU %}
+    <ul class="cat-menu pure-menu-list">
+{% for cat, null in CATEGORIES %}
+      <li class="cat-menu-item pure-menu-item {% if cat == category %}pure-menu-selected{% endif %}">
+      <a href="{{ SITEURL }}/{{ cat.url }}" class="pure-menu-link">{{ cat }}</a></li>
+{% endfor %}
+    </ul>
+{% endif %}
+
+  </div>
+</nav>

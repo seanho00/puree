@@ -1,66 +1,52 @@
 <!doctype html>
-{% set USE_OPEN_GRAPH = True %}
-<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock %}"{% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns#"{% endif %}>
+{% if USE_OPEN_GRAPH is not defined %}{% set USE_OPEN_GRAPH = True %}{% endif %}
+<html lang="{% if article %}{{ article.lang }}{% elif page %}{{ page.lang }}{% else %}{{ DEFAULT_LANG }}{% endif %}"{% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns#"{% endif %}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="{{ SITENAME }}, {{ TAGLINE }}">
   <meta name="author" content="{{ AUTHOR }}" />
-
-{% block head %}
   <title>{% block title %}{{ SITENAME }} // {{ TAGLINE }}{% endblock title %}</title>
-{% endblock head %}
 
 {% include "include/css.html" %}
 {% include "include/opengraph.html" %}
 {% include "include/favicon.html" %}
 {% include "include/feeds.html" %}
 
-</head>
+</head><body>
 
+{% include "include/nav.html" %}
 
-<body>
-    <div class="pure-g-r" id="layout">
-        <div class="sidebar pure-u">
-            <div class="cover-img" {% if COVER_IMG_URL -%}
-                style="background-image: url('{% block sidebar %}{{ COVER_IMG_URL }}{% endblock %}')"
-                {%- else -%}
-                style="background: none repeat scroll 0% 0% #3D4F5D"
-                {%- endif -%}>
-                <div class="cover-body">
-                    <header class="header">
-                        <hgroup>
-                            {% if PROFILE_IMG_URL %}
-                            <img class="avatar" src="{{ PROFILE_IMG_URL }}">
-                            {% endif %}
-                            <h1 class="brand-main"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
-                            <p class="tagline">{{ TAGLINE }}</p>
-                            {% for title, link in MENUITEMS %}
-                                <p class="links"><a href="{{ link }}">{{ title }}</a></p>
-                            {% endfor %}
-                            {% if DISPLAY_PAGES_ON_MENU %}
-                            {% for page in PAGES %}
-                                <p class="links"><a href="{{ SITEURL }}/pages/{{ page.slug }}">{{ page.title }}</a></p>
-                            {% endfor %}
-                            {% endif %}
-                                <p class="social">
-                            {% for title, link in SOCIAL %}
-                                    <a href="{{ link }}">
-                                        <i class="fa fa-{{ title }} fa-3x"></i>
-                                    </a>
-                            {% endfor %}
-                                </p>
-                        </hgroup>
-                    </header>
-                </div>
-            </div>
-        </div>
-        {% block content %}
-        {% endblock %}
-    </div>
+  <div class="pure-g-r" id="layout"><div class="sidebar pure-u">
+    <div class="banner-img"
+{% if BANNER -%}
+	style="background-image: url('{% block sidebar %}{{ SITEURL }}/{{ BANNER }}{% endblock %}')"
+{%- else -%}
+	style="background: none repeat scroll 0% 0% #3D4F5D"
+{%- endif -%}>
+    <div class="banner-body">
+    <header class="header"><hgroup>
+{% if PROFILE_IMG_URL %}
+	<img class="avatar" src="{{ PROFILE_IMG_URL }}">
+{% endif %}
+	<h1 class="brand-main"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+	<p class="tagline">{{ SITESUBTITLE }}</p>
+{% for title, link in LINKS %}
+	<p class="links"><a href="{{ link }}">{{ title }}</a></p>
+{% endfor %}
+	<p class="social">
+{% for title, link in SOCIAL %}
+	  <a href="{{ link }}"><i class="fa fa-{{ title }} fa-3x"></i></a>
+{% endfor %}
+	</p>
+    </hgroup></header>
+    </div></div>
 
-{% include 'include/analytics.html' %}
+{% block content %}{% endblock %}
+
+  </div></div>
+
 {% include 'include/js.html' %}
-</body>
-</html>
+{% include 'include/analytics.html' %}
+</body></html>
