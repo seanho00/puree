@@ -13,11 +13,11 @@ All of these are optional.
 * `AVATAR` - Image for the circle cutout.
 * `TAGLINE` - Used for the page titles and some meta tags.
 * `FAVICON` - Image icon in the browser's address bar.
-* `DISQUS_SITENAME` - Set this to enable Disqus comments in articles.
-* `DISQUS_ON_PAGES` - Set this to True to enable Disqus comments in pages.
-* `GOOGLE_ANALYTICS` - Set the Google Analytics code (eg. "UA-000000-00")
-* `PIWIK_URL` and `PIWIK_SITE_ID` - Set the URL and site-id for Piwik tracking. (Without 'http://')
-* `SOCIAL` - Set some social links in the sidebar. The format should be like this:
+* `DISQUS_SITENAME` - Enable Disqus comments in articles.
+* `DISQUS_ON_PAGES` - Enable Disqus comments in pages.
+* `GOOGLE_ANALYTICS` - Enable Google Analytics tracking (eg. "UA-000000-00").
+* `PIWIK_URL` and `PIWIK_SITE_ID` - Set the URL and site-id for Piwik tracking.
+* `SOCIAL` - List of social links in the following format:
 
     ```python
     SOCIAL = (
@@ -45,7 +45,7 @@ your article list to another URL.
 ## Custom article metadata:
 * `banner` - will replace the banner image on a per-article basis
 
-## Aditional features
+## Additional features
 * [FitVids](https://github.com/davatron5000/FitVids.js) jQuery plugin for fluid width video embeds.
 
 
