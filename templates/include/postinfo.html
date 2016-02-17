@@ -1,0 +1,24 @@
+{# Footer for articles/pages #}
+{% macro post_info(post) %}
+<footer class="post-info">
+
+  <abbr class="published" title="{{ post.date.isoformat() }}">
+    {{ post.locale_date }}
+  </abbr>
+
+{% if post.modified %}
+  <abbr class="modified" title="{{ post.modified.isoformat() }}">
+    {{ post.locale_modified }}
+  </abbr>
+{% endif %}
+
+{% if post.authors %}
+  <address class="vcard author"> By
+{% for au in post.authors %}
+    <a class="author-link" href="{{ SITEURL }}/{{ au.url }}">{{ au }}</a>
+{% endfor %}
+  </address>
+{% endif %}
+
+</footer>
+{% endmacro %}
