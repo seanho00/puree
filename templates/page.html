@@ -8,10 +8,10 @@
             <p>{{ page.content }}</p>
 
             {% if DISQUS_ON_PAGES %}
-            {% include 'disqus.html' %}
+            {% include 'include/disqus.html' %}
             {% endif %}
 
-            {% include 'footer.html' %}
+            {% include 'include/footer.html' %}
         </div>
     </div>
 {% endblock %}

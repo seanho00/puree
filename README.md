@@ -1,15 +1,16 @@
-Pure Single
-===========
+# Pelican Puree
 
-[Blogging theme](http://purepelican.com) based on [Purecss](http:purecss.io) for [Pelican](http://docs.getpelican.com/) blogs.
-Theme is responsive.
+Based on 
+[Pure-Simple](http://purepelican.com) theme, using the
+[Purecss](http:purecss.io) responsive framework, for
+[Pelican](http://docs.getpelican.com/) blogs.
 
-## PELICANCONF.PY
+## Settings in pelicanconf.py
 
-* `COVER_IMG_URL` - Set the sidebar image (Optional).
-* `PROFILE_IMG_URL` - Set the image for the top circle cutout.
+* `BANNER` - Set the sidebar image (Optional).
+* `AVATAR` - Set the image for the top circle cutout.
 * `TAGLINE` - Used for the page titles and some meta tags.
-* `FAVICON_URL` - Set the favicon image
+* `FAVICON` - Set the favicon image
 * `DISQUS_SITENAME` - Set this to enable disqus comments in articles.
 * `DISQUS_ON_PAGES` - Set this to True to enable disqus comments in pages.
 * `GOOGLE_ANALYTICS` - Set the Google Analytics code (eg. "UA-000000-00")

@@ -2,7 +2,6 @@
 {% block title %}Categories | {{ super() }}{% endblock title %}
 {% block pagetitle %}All Categories{% endblock pagetitle %}
 
-
 {% block content %}
     <div class="pure-u-1">
         <div class="content">
@@ -12,7 +11,7 @@
                     <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
                 {% endfor %}
             </ul>
-            {% include 'footer.html' %}
+            {% include 'include/footer.html' %}
         </div>
     </div>
 {% endblock %}

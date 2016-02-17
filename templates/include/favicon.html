@@ -1,0 +1,10 @@
+{# See http://stackoverflow.com/a/23851464/872397 #}
+{% if FAVICON %}
+  <link href="{{ SITEURL }}/{{ FAVICON }}" rel="icon">
+{% endif %}
+{% if FAVICON_IE %}
+  <!--[if IE]><link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON_IE }}"><![endif]-->
+{% endif %}
+{% if TOUCHICON %}
+  <link rel="apple-touch-icon" href="{{ SITEURL }}/{{ TOUCHICON }}">
+{% endif %}
