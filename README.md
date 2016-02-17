@@ -34,7 +34,7 @@ You may specify a page/article to be your home page, rather than the
 default listing of recent articles.  In the metadata of your chosen
 landing page, specify the following:
 
-    ```Markdown
+    ```
     Title: My wonderful site
     Template: landing
     URL:
