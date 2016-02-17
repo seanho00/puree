@@ -32,14 +32,12 @@ This theme respects `DISPLAY_PAGES_ON_MENU` and `DISPLAY_CATEGORIES_ON_MENU`.
 ## Custom landing page
 You may specify a page/article to be your home page, rather than the
 default listing of recent articles.  In the metadata of your chosen
-landing page, specify the following:
+landing page, specify the following (assuming you're using Markdown):
 
-    ```
-    Title: My wonderful site
-    Template: landing
-    URL:
-    Save_As: index.html
-    ```
+	Title: My wonderful site
+	Template: landing
+	URL:
+	Save_As: index.html
 
 You may want to use `INDEX_SAVE_AS` in your `pelicanconf.py` to move
 your article list to another URL.
