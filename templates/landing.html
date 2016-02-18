@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
-{% block title %}{{ page.title|striptags }} // {{ super() }}{% endblock title %}
 
-{% block content %}
-  <div class="pure-u">
+{% block title -%}
+{{ super() }} // {{ page.title|striptags }}
+{%- endblock title %}
+
+{% block body %}
+  <div class="pure-u splash">
+    <div class="splash-body">
+      <h1 class="splash-title">{{ SITENAME }}</h1>
+      <h2 class="splash-tagline">{{ TAGLINE }}</p>
+    </div>
     <div class="content">
-      <h1 class="content-subhead">{{ page.title }}</h1>
-      <p>{{ page.content }}</p>
-
-{% include 'include/footer.html' %}
+      <p class="body">{{ page.content }}</p>
     </div>
   </div>
 {% endblock %}
