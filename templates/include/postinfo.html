@@ -1,23 +1,24 @@
-{# Footer for articles/pages #}
-{% macro post_info(post) %}
-<footer class="post-info">
-
-  <abbr class="published" title="{{ post.date.isoformat() }}">
-    {{ post.locale_date }}
-  </abbr>
-
-{% if post.modified %}
-  <abbr class="modified" title="{{ post.modified.isoformat() }}">
-    {{ post.locale_modified }}
-  </abbr>
-{% endif %}
+{# Display metadata for articles/pages #}
+{% macro metadata(post) %}
+<footer class="post-meta">//
 
 {% if post.authors %}
   <address class="vcard author"> By
 {% for au in post.authors %}
     <a class="author-link" href="{{ SITEURL }}/{{ au.url }}">{{ au }}</a>
 {% endfor %}
-  </address>
+  </address> &middot;
+{% endif %}
+
+  <span class="post-date" title="{{ post.date.isoformat() }}">{{ post.locale_date }}</span>
+
+{% if HIDE_CATEGORIES %}
+  under
+{% for tag in post.tags %}
+  <a class="post-cat" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+{% endfor %}
+{% else %}
+  in <a class="post-cat" href="{{ SITEURL }}/{{ post.category.url }}">{{ post.category }}</a>
 {% endif %}
 
 </footer>
