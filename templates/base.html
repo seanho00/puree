@@ -1,5 +1,5 @@
 <!doctype html>
-{% if USE_OPEN_GRAPH is not defined %}{% set USE_OPEN_GRAPH = True %}{% endif %}
+{% include "../defaults.html" %}
 <html lang="{% if article %}{{ article.lang }}{% elif page %}{{ page.lang }}{% else %}{{ DEFAULT_LANG }}{% endif %}"{% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns#"{% endif %}>
 <head>
   <meta charset="utf-8">
@@ -18,9 +18,15 @@
 
 {% include "include/nav.html" %}
 
-  <div class="pure-g-r" id="layout">
-{% include "include/banner.html" %}
+  <div class="pure-g" id="layout">
+{% block body %}
+{% include "include/header.html" %}
+    <div class="pure-u content">
+      <div class="content">
 {% block content %}{% endblock %}
+      </div>
+   </div>
+{% endblock %}
   </div>
 
 {% include 'include/js.html' %}
