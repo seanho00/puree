@@ -1,5 +1,5 @@
 <!doctype html>
-{% include "../defaults.html" %}
+{% include 'include/defaults.html' %}
 <html lang="{% if article %}{{ article.lang }}{% elif page %}{{ page.lang }}{% else %}{{ DEFAULT_LANG }}{% endif %}"{% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns#"{% endif %}>
 <head>
   <meta charset="utf-8">
@@ -9,23 +9,37 @@
   <meta name="author" content="{{ AUTHOR }}" />
   <title>{% block title %}{{ SITENAME }} // {{ TAGLINE }}{% endblock title %}</title>
 
-{% include "include/css.html" %}
-{% include "include/opengraph.html" %}
-{% include "include/favicon.html" %}
-{% include "include/feeds.html" %}
+{% include 'include/css.html' %}
+{% include 'include/opengraph.html' %}
+{% include 'include/favicon.html' %}
+{% include 'include/feeds.html' %}
 
 </head><body>
 
-{% include "include/nav.html" %}
+{% include 'include/nav.html' %}
 
   <div class="pure-g" id="layout">
 {% block body %}
-{% include "include/header.html" %}
-    <div class="pure-u content">
-      <div class="content">
+
+    <div class="header pure-u-1 pure-u-md-1-4"
+{%- if BANNER -%}
+	style="background-image: url('{{ SITEURL }}/{{ BANNER }}')"
+{%- else -%}
+	style="background: none repeat scroll 0% 0% #3D4F5D"
+{%- endif -%}><header>
+{% include 'include/header.html' %}
+    </header></div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <main>
 {% block content %}{% endblock %}
-      </div>
-   </div>
+      </main>
+
+      <footer class="footer">
+{% include 'include/footer.html' %}
+      </footer>
+    </div>
+
 {% endblock %}
   </div>
 
