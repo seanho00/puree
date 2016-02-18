@@ -2,8 +2,19 @@
 {% set USE_OPEN_GRAPH = USE_OPEN_GRAPH|d(True, true) %}
 {% set SITESUBTITLE = SITESUBTITLE|d('', true) %}
 {% set TAGLINE = TAGLINE|d(SITESUBTITLE, true) %}
+{% set DEFAULT_LANG = DEFAULT_LANG|d('en', true) %}
+
 <!doctype html>
-<html lang="{% if article %}{{ article.lang }}{% elif page %}{{ page.lang }}{% else %}{{ DEFAULT_LANG }}{% endif %}"{% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns#"{% endif %}>
+<html lang=
+{%- if article -%}
+  "{{ article.lang }}"
+{%- elif page -%}
+  "{{ page.lang }}"
+{%- else -%}
+  "{{ DEFAULT_LANG }}"
+{%- endif -%}
+  {% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns#"{% endif %}>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
