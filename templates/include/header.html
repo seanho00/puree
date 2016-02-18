@@ -1,13 +1,5 @@
-{# Sidebar on wide screens switches to top banner on narrow screens #}
-    <div class="header pure-u">
-      <div class="banner-img"
-{%- if BANNER -%}
-	style="background-image: url('{{ SITEURL }}/{{ BANNER }}')"
-{%- else -%}
-	style="background: none repeat scroll 0% 0% #3D4F5D"
-{%- endif -%}>
-
-      <div class="header-body"><header>
+{# Content for sidebar / top header #}
+      <div class="header-body">
 {% if AVATAR %}
 	<img class="avatar" src="{{ SITEURL }}/{{ AVATAR }}">
 {% endif %}
@@ -21,7 +13,4 @@
 	  <a href="{{ link }}"><i class="fa fa-{{ title }} fa-3x"></i></a>
 {% endfor %}
 	</p>
-      </header></div>
-
-    </div></div>
-</div>
+      </div>
