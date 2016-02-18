@@ -2,15 +2,18 @@
 {% block title %}{{ page.title|striptags }} // {{ super() }}{% endblock title %}
 
 {% block content %}
+	<article class="page">
 	<h1 class="content-title">{{ page.title }}</h1>
 
 {% import 'include/translations.html' as tr with context %}
 {{ tr.translations_for(page) }}
 
-      <p>{{ page.content }}</p>
+	<div class="content">{{ page.content }}</div>
 
 {% import 'include/metadata.html' as md with context %}
 {{ md.metadata(page) }}
+
+	</article>
 
 {% if DISQUS_ON_PAGES %}
 {% include 'include/disqus.html' %}
