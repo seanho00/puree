@@ -1,20 +1,18 @@
 {# Sidebar on wide screens switches to top banner on narrow screens #}
-<div class="sidebar pure-u">
-  <div class="banner-img"
-{% if BANNER -%}
-	style="background-image: url('{% block sidebar %}{{ SITEURL }}/{{ BANNER }}{% endblock %}')"
+    <div class="header pure-u">
+      <div class="banner-img"
+{%- if BANNER -%}
+	style="background-image: url('{{ SITEURL }}/{{ BANNER }}')"
 {%- else -%}
 	style="background: none repeat scroll 0% 0% #3D4F5D"
 {%- endif -%}>
 
-    <div class="banner-body">
-
-    <header class="header"><hgroup>
-{% if PROFILE_IMG_URL %}
-	<img class="avatar" src="{{ PROFILE_IMG_URL }}">
+      <div class="header-body"><header>
+{% if AVATAR %}
+	<img class="avatar" src="{{ SITEURL }}/{{ AVATAR }}">
 {% endif %}
-	<h1 class="brand-main"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
-	<p class="tagline">{{ SITESUBTITLE }}</p>
+	<h1 class="header-title"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+	<p class="tagline">{{ TAGLINE }}</p>
 {% for title, link in LINKS %}
 	<p class="links"><a href="{{ link }}">{{ title }}</a></p>
 {% endfor %}
@@ -23,7 +21,7 @@
 	  <a href="{{ link }}"><i class="fa fa-{{ title }} fa-3x"></i></a>
 {% endfor %}
 	</p>
-    </hgroup></header>
+      </header></div>
 
-  </div></div>
+    </div></div>
 </div>
