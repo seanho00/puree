@@ -1,6 +1,6 @@
 {# Display metadata for articles/pages #}
 {% macro metadata(post) %}
-<footer class="post-meta">//
+<div class="post-meta">//
 
 {% if post.authors %}
   <address class="vcard author"> By
@@ -10,7 +10,8 @@
   </address> &middot;
 {% endif %}
 
-  <span class="post-date" title="{{ post.date.isoformat() }}">{{ post.locale_date }}</span>
+  <span class="post-date" title="{{ post.date.isoformat() }}">
+  <time datetime="{{ post.date.isoformat() }}">{{ post.locale_date }}</time></span>
 
 {% if HIDE_CATEGORIES %}
   under
@@ -21,5 +22,5 @@
   in <a class="post-cat" href="{{ SITEURL }}/{{ post.category.url }}">{{ post.category }}</a>
 {% endif %}
 
-</footer>
+</div>
 {% endmacro %}
