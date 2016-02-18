@@ -1,5 +1,8 @@
+{# Set some defaults if not specified in pelicanconf.py #}
+{% set USE_OPEN_GRAPH = USE_OPEN_GRAPH|d(True, true) %}
+{% set SITESUBTITLE = SITESUBTITLE|d('', true) %}
+{% set TAGLINE = TAGLINE|d(SITESUBTITLE, true) %}
 <!doctype html>
-{% include 'include/defaults.html' %}
 <html lang="{% if article %}{{ article.lang }}{% elif page %}{{ page.lang }}{% else %}{{ DEFAULT_LANG }}{% endif %}"{% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns#"{% endif %}>
 <head>
   <meta charset="utf-8">
