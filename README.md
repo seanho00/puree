@@ -1,16 +1,31 @@
 # Pelican Puree
 
-Based on 
-[Pure-Simple](http://purepelican.com) theme, using the
-[Purecss](http:purecss.io) responsive framework, for
+Lightweight, mobile-first, responsive theme for 
 [Pelican](http://docs.getpelican.com/) blogs.
+
+## Features
+* Top header panel on small screens becomes a sidebar on larger screens.
+* Special template for optional landing page.
+* Minimal dependencies:
+  + [Pure.css](http://purecss.io)
+  + [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
+  + No Bootstrap!  No jQuery!
+* Optional dependencies, disabled by default:
+  + [Disqus](http://disqus.com)
+  + [Google Analytics](http://google.com/analytics)
+  + [Piwik](http://piwik.org)
+
+## Many thanks
+* [Pure-Simple](http://purepelican.com) Pure.css-based theme for Pelican
+* [pelican-bootstrap3](https://github.com/DandyDev/pelican-bootstrap3) theme
+* [Pure.CSS Layout](http://purecss.io/layouts/blog/) sample blog layout
 
 ## Settings in pelicanconf.py
 
 All of these are optional.
 
-* `SITESUBTITLE` - Tagline for menu.
-* `BANNER` - Top banner image.
+* `TAGLINE` (or `SITESUBTITLE` for compatibility) - Short text for header
+* `BANNER` - Background image for header.
 * `AVATAR` - Image for the circle cutout.
 * `FAVICON` - Image icon in the browser's address bar.
 * `DISQUS_SITENAME` - Enable Disqus comments in articles.
@@ -46,9 +61,5 @@ You may want to use `INDEX_SAVE_AS` in your `pelicanconf.py` to move
 your article list to another URL.
 
 ## Custom article metadata:
-* `banner` - will replace the banner image on a per-article basis
-
-## Additional features
-* [FitVids](https://github.com/davatron5000/FitVids.js) jQuery plugin for fluid width video embeds.
-
+* `banner` - will replace the `BANNER` image on a per-article basis
 
