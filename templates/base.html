@@ -2,18 +2,14 @@
 {% set USE_OPEN_GRAPH = USE_OPEN_GRAPH|d(True, true) %}
 {% set SITESUBTITLE = SITESUBTITLE|d('', true) %}
 {% set TAGLINE = TAGLINE|d(SITESUBTITLE, true) %}
-{% set DEFAULT_LANG = DEFAULT_LANG|d('en', true) %}
+{% set LANG = DEFAULT_LANG|d('en') %}
+{% if article %}{% set LANG = article.lang %}{% endif %}
+{% if page    %}{% set LANG = page.lang    %}{% endif %}
+{% set BANNER_URL = 'url(\'' + SITEURL + '/' + BANNER + '\')' %}
+{% set SHADING = 'linear-gradient(to top,rgba(0,0,0,0.5) 0,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)' %}
 
 <!doctype html>
-<html lang=
-{%- if article -%}
-  "{{ article.lang }}"
-{%- elif page -%}
-  "{{ page.lang }}"
-{%- else -%}
-  "{{ DEFAULT_LANG }}"
-{%- endif -%}
-  {% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns#"{% endif %}>
+<html lang="{{ LANG }}" {%- if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns#"{% endif %}>
 
 <head>
   <meta charset="utf-8">
@@ -30,17 +26,19 @@
 
 </head><body>
 
-{% include 'include/nav.html' %}
+{# include 'include/nav.html' #}
 
   <div class="pure-g" id="layout">
 {% block body %}
 
-    <div class="header pure-u-1 pure-u-md-1-4"
+    <div class="header pure-u-1 pure-u-md-1-4" style="
 {%- if BANNER -%}
-	style="background-image: url('{{ SITEURL }}/{{ BANNER }}')"
+  background-image: {{ BANNER_URL }};	{# compat #}
+  background-image: {{ BANNER_URL }}, {{ SHADING }};
 {%- else -%}
-	style="background: none repeat scroll 0% 0% #3D4F5D"
-{%- endif -%}><header>
+  background-color: #444;
+  background-image: {{ SHADING }};
+{%- endif -%}"><header>
 {% include 'include/header.html' %}
     </header></div>
 
