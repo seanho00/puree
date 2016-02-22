@@ -1,4 +1,4 @@
-* [ ] Banner image for sample blog
+* [ ] Make sample site the theme's GitHub Pages homepage?
 * [ ] Avatar for sample blog
 * [ ] Bottom-center text in sidebar
 * [ ] Debug TAGLINE from SITESUBTITLE in header
