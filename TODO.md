@@ -1,18 +1,17 @@
 * [ ] Make sample site the theme's GitHub Pages homepage?
 * [ ] Avatar for sample blog
-* [ ] Bottom-center text in sidebar
-* [ ] Debug TAGLINE from SITESUBTITLE in header
-* [ ] Left-align bg img in sidebar
 * [ ] Format links/blogroll in sidebar/header
+* [ ] Debug TAGLINE from SITESUBTITLE in header
 * [ ] article.html (cf page.html)
 * [ ] index.html
 * [ ] tag.html, category, author, archives, period_archives (cf index)
 * [ ] tags.html, categories, authors
 * [ ] landing.html
-* [ ] Top nav bar (transparent)
 * [ ] Colors
 * [ ] Fonts
+* [ ] Bottom-center text in sidebar
 
+* [ ] Top nav bar (transparent)
 * [ ] Custom 404 page
 * [ ] Images in posts (FitVids?)
 * [ ] Translations
